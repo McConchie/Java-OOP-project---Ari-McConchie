@@ -6,22 +6,30 @@ public class Quiz extends JFrame {
 	
 	private static final long serialVersionUID = 1L;
 	
+	//The fields of the object which contain the question results
 	String q1, q2, q3, q4, q5, q6, q7, q8, q9, q10;
+	//Field used to display the user's score
 	int score = 0;
+	//Boolean field to prevent displaying results if the quiz has been cancelled
 	boolean isNull = true;
-
+	
+	//All the question methods follow the same structure. They return void and simply set the object attributes to either "Correct" or "Incorrect"
 	public void question1() {
 		
+		//Displays the quiz question as an input dialog 
 		String[] values = {"To eat pizza and drink beer", "The open steppe, fleet horse, falcons at your wrist, and the wind in your hair.", "To crush your enemies, see them driven before you and hear the lamentations of their women."};
 		String q1 = (String) JOptionPane.showInputDialog(null, "What is best in life?", "", JOptionPane.QUESTION_MESSAGE, null, values, "0");    
 
+		//Check if cancel or close is clicked to stop the quiz and set isNull to true to stop the user from viewing the incomplete results
 		if(q1 == null) {
 			this.q1 = "Cancel";
 			this.isNull = true;
+		//The correct answer. Sets the attribute to "Correct", adds 1 to the score and sets isNull to true so that results can be viewed
 		} else if(q1 == "To crush your enemies, see them driven before you and hear the lamentations of their women.") {
 			this.q1 = "Correct";
 			this.score++;
 			this.isNull = false;
+		//Wrong answer. Sets attribute to "Incorrect" and isNull to false so that results can be viewed
 		} else
 			this.q1 = "Incorrect";
 		this.isNull = false;
@@ -125,7 +133,7 @@ public class Quiz extends JFrame {
 	}
 	
 	public void question6() {
-		
+
 		JPanel q6 = new JPanel();
 		
 		JRadioButton button1 = new JRadioButton("Milk");
@@ -162,7 +170,7 @@ public class Quiz extends JFrame {
 	}
 	
 	public void question7() {
-		
+
 		JPanel q7 = new JPanel();
 		
 		JCheckBox button1 = new JCheckBox("ESP");
@@ -193,7 +201,7 @@ public class Quiz extends JFrame {
 	}
 	
 	public void question8() {
-		
+
 		String q8 = JOptionPane.showInputDialog(null, "Continue this sentence: Put that cookie...", "", JOptionPane.QUESTION_MESSAGE);
 		
 		if(q8 == null) {
@@ -208,7 +216,7 @@ public class Quiz extends JFrame {
 	
 	
 	public void question9() {
-		
+
 		String[] values = {"Tomato", "Potato", "Cyberdyne Systems model 101", "Carrot"};
 		String q9 = (String) JOptionPane.showInputDialog(null, "Which one is not a vegetable?", "", JOptionPane.QUESTION_MESSAGE, null, values, "0");    
 		
@@ -223,7 +231,7 @@ public class Quiz extends JFrame {
 	}
 	
 	public void question10() {
-		
+
 		JPanel q10 = new JPanel();
 		
 		JRadioButton button1 = new JRadioButton("Metropolia");
